@@ -18,7 +18,6 @@ var hours = ["9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"];
 //make a row for every hour from 9-5pm
 console.log(hours);
 hours.map((hour) => {
-  console.log("I am an hour", hour);
   var hourRow = $("<div>");
   hourRow.attr("class", "row hour");
 
@@ -28,8 +27,8 @@ hours.map((hour) => {
   var timeNow = parseInt(moment().format("h"));
   var hourNow = parseInt(hour);
   console.log(timeNow);
-  // WHEN I view the timeblocks for that day
-  // THEN each timeblock is color coded to indicate whether it is in the past, present, or future.
+
+  // WHEN I view the timeblocks for that day. // THEN each timeblock is color coded to indicate whether it is in the past, present, or future.
   if (hourNow === timeNow) {
     hourRow.addClass("present");
   } else if (hour < timeNow) {
@@ -37,15 +36,30 @@ hours.map((hour) => {
   } else {
     hourRow.addClass("future");
   }
-
+  // THEN I can enter an event
   $(".time-block").attr("contenteditable", "true");
-});
-//   $("#click-me").on("click", function () {
-//     console.log("You clicked!");
-//   });
 
-// THEN I can enter an event
-// WHEN I click the save button for that timeblock
-// THEN the text for that event is saved in local storage
-// WHEN I refresh the page
-// THEN the saved events persist -->
+  var eventDescription = $("<text>");
+  eventDescription.attr("class", "description");
+
+  // Make the Save Button
+  var saveButton = $("<button>").text("save");
+  saveButton.attr("class", "saveBtn hover");
+  hourRow.append(saveButton);
+
+  // WHEN I click the save button for that timeblock
+
+  saveButton.on("click", function () {
+    var event = eventDescription.val();
+    localStorage.setItem(event);
+  });
+
+  // THEN the text for that event is saved in local storage
+  var storedValue = localStorage.getItem(hours);
+
+  // WHEN I refresh the page
+  // THEN the saved events persist -->
+  if (storedValue) {
+    hourDescription.val(storedValue);
+  }
+});
