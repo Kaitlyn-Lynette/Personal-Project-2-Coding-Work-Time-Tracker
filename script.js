@@ -25,6 +25,17 @@ days.map((day) => {
 
 // Create
 
-var calendarDate = parseInt(moment().format('MMMM Do YYYY, h:mm:ss a'));
-console.log(calendarDate);
+var todayDate = moment().format("MMM Do YY")
+console.log(todayDate);
+var count = 0;
 
+var printDate = () => {
+  console.log(todayDate);
+  for(var i =0; i<days.length; i++)
+  // console.log(days[i])
+  console.log(moment().add(i, 'days').calendar())
+
+  //Next step is figure out how to print the date 
+}
+
+printDate()
