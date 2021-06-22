@@ -17,25 +17,33 @@ console.log(todayDate);
 var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 days.map((day) => {
   console.log(day)
+//This is the text box for the day of the week 
   var dayRow = $("<div>");
   dayRow.attr("class", "row day");
-  dayRow.text(day);
   $(".time-block").append(dayRow);
+//This is the day of the week 
+  var dayOfWeek = $("<div>")
+  dayOfWeek.attr("class", "week day");
+  dayOfWeek.text(day)
+  $(".time-block").append(dayOfWeek);
 });
+//This all the row to be editable 
+$(".row").attr("contenteditable", "true");
+
+
+
 
 // Create
 
-var todayDate = moment().format("MMM Do YY")
-console.log(todayDate);
-var count = 0;
+// var todayDate = moment().format("MMM Do YY")
+// console.log(todayDate);
+// var count = 0;
 
-var printDate = () => {
-  console.log(todayDate);
-  for(var i =0; i<days.length; i++)
-  // console.log(days[i])
-  console.log(moment().add(i, 'days').calendar())
+// var printDate = () => {
+//   console.log(todayDate);
+//   for(var i =0; i<days.length; i++){
+//     console.log(moment().add(i, 'days').format('LL'))
+//   }
+// }
 
-  //Next step is figure out how to print the date 
-}
-
-printDate()
+// printDate()
