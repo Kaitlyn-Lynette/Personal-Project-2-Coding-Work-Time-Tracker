@@ -26,14 +26,15 @@ days.map((day) => {
   dayOfWeek.attr("class", "week day");
   dayOfWeek.text(day)
   $(".time-block").append(dayOfWeek);
+
+  var saveButton = $("<button>").text("save");
+  saveButton.attr("class", "saveBtn hover");
+  dayRow.append(saveButton)
+
 });
 //This all the row to be editable 
 $(".row").attr("contenteditable", "true");
 
-
-
-
-// Create
 
 // var todayDate = moment().format("MMM Do YY")
 // console.log(todayDate);
