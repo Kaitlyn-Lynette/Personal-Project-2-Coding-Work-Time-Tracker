@@ -34,8 +34,9 @@ textarea{
   float: right;
   white-space: pre-wrap;
   height: 80px;
-  width: 80%;
+  width: 65%;
   border-top: 1px solid white;
+  border-right: 2px solid white;
   background-color: #ff6961;
 }
 
@@ -59,6 +60,9 @@ textarea{
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   background-color: #00ff00;
+  height: 80px;
+  width:15%;
+  float: right;
   color: white;
 }
 

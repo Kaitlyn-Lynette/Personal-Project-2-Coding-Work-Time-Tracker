@@ -16,35 +16,31 @@ console.log(todayDate);
 //Creates a a row for each day 
 var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 days.map((day) => {
-  console.log(day)
 //This is the text box for the day of the week 
   var dayRow = $("<div>");
   dayRow.attr("class", "row day");
-  $(".time-block").append(dayRow);
+
 //This is the day of the week 
   var dayOfWeek = $("<div>")
   dayOfWeek.attr("class", "week day");
   dayOfWeek.text(day)
+
+  // var daySpan = $("<span>");
+  // daySpan.attr("class","hour col")
+  // daySpan.text(day)
+  // dayOfWeek.append(daySpan)
+
+  var buttonDiv = $("<div>")
+  $(".time-block").append(buttonDiv);
+  
+
+  // var saveBtn = $("<button>").text("save");
+  // saveBtn.attr("class", "saveBtn");
+  // saveBtn.text("Save");
+ 
+ 
+  // dayRow.append(saveBtn);
+  $(".time-block").append('<button class="saveBtn">Save</button>') 
+  $(".time-block").append(dayRow);
   $(".time-block").append(dayOfWeek);
-
-  var saveButton = $("<button>").text("save");
-  saveButton.attr("class", "saveBtn hover");
-  dayRow.append(saveButton)
-
 });
-//This all the row to be editable 
-$(".row").attr("contenteditable", "true");
-
-
-// var todayDate = moment().format("MMM Do YY")
-// console.log(todayDate);
-// var count = 0;
-
-// var printDate = () => {
-//   console.log(todayDate);
-//   for(var i =0; i<days.length; i++){
-//     console.log(moment().add(i, 'days').format('LL'))
-//   }
-// }
-
-// printDate()
