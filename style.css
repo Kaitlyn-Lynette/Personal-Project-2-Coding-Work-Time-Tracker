@@ -14,15 +14,20 @@ textarea{
   width: 100%
 }
 
+.lead {
+  margin-top: 20px;
+}
+
 .jumbotron {
   text-align: center;
-  background-color: transparent;
+  background-color: yellow;
   color: black;
   border-radius: 0;
   border-bottom: 10px solid black;
+  font-family:'Anton', sans-serif;
 }
 
-.description{
+.timestamp{
   white-space: pre-wrap;
 }
 
@@ -49,12 +54,10 @@ textarea{
   border-top: 1px solid white;
 }
 
-.hour {
-  background-color: #ffffff;
-  color: #000000;
-  border-top: 1px dashed #000000;
+.buttonDiv {
+  float: right;
+  width:15%;
 }
-
 
 .saveBtn {
   border-left: 1px solid black;
@@ -62,12 +65,14 @@ textarea{
   border-bottom-right-radius: 15px;
   background-color: #00ff00;
   height: 80px;
-  width:15%;
-  float: right;
+  /* width:15%;
+  float: right; */
   color: white;
 }
 
 .saveBtn i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
+  background-color: yellow;
+
 }
