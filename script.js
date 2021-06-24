@@ -13,44 +13,52 @@ console.log(todayDate);
 var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 days.map((day) => {
 
-
 //This is the div containing the M-F  
   var dayOfWeek = $("<div>")
   dayOfWeek.attr("class", "week day");
   dayOfWeek.text(day);
-  //Append the day of the week div
-  $(".time-block").append(dayOfWeek);
-
+  
 //This is the div containing the buttons
   var buttonDiv = $("<div>")
   buttonDiv.attr("class", "buttonDiv")
-  //Append the button div 
-  $(".time-block").append(buttonDiv);
 
   //This is the save button
   var saveBtn = $("<button>")
   saveBtn.attr("class","saveBtn")
   saveBtn.text("Save")
-  //Append the button to the button fiv 
-  buttonDiv.append(saveBtn)
 
   //This is the div making the rows
   var dayRow = $("<div>");
   dayRow.attr("class", "row day");
-   //Append row to the time-block div existing in the container
-  $(".time-block").append(dayRow);
 
+  //This is the description area where time will be recorded
   var timeRecording = $("<textarea>")
   timeRecording.attr("class", "timestamp")
-    //Appends the textArea
-  dayRow.append(timeRecording)
-  
+
+  //This is the event listner
     saveBtn.on("click", function() {
     var event = timeRecording.val();
+    console.log(event)
+    //event = what is entered into the text area and day is the day of the week that is being mapped
     localStorage.setItem(day, event);
   })
- 
+
+  //This is setting the event recroded to the day 
+  var storedValue = localStorage.getItem(day);
+  console.log(storedValue)
+
+  if(storedValue) {
+    timeRecording.val(storedValue)
+  }
+
+//Append divs and buttons
+  $(".time-block").append(dayOfWeek);
+  $(".time-block").append(buttonDiv);
+  $(".time-block").append(dayRow);
+  dayRow.append(timeRecording);
+  buttonDiv.append(saveBtn);
 });
+
 
 
 
