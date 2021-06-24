@@ -12,31 +12,45 @@ console.log(todayDate);
 // THEN I am presented with 6 days of the week
 var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 days.map((day) => {
-//This is the row for the day of the week 
-  var dayRow = $("<div>");
-  dayRow.attr("class", "row day");
-  // $(".row").attr("contenteditable", "true");
-  $(".row").append('<textarea>')
 
-//This is the div for the of the week 
+
+//This is the div containing the M-F  
   var dayOfWeek = $("<div>")
   dayOfWeek.attr("class", "week day");
   dayOfWeek.text(day);
-
-//This is the button div for each row
-  var buttonDiv = $("<div>")
-  $(".time-block").append(buttonDiv);
-
-
-//This is where I append the divs and button on the button div
-  $(".time-block").append('<button class="saveBtn">Save</button>') 
-  $(".time-block").append(dayRow);
+  //Append the day of the week div
   $(".time-block").append(dayOfWeek);
 
-  // saveBtn.on("click", function() {
-  //   var event = timeStamp.val();
-  //   localStorage.setItem(day.stringTime, event);
-  // })
+//This is the div containing the buttons
+  var buttonDiv = $("<div>")
+  buttonDiv.attr("class", "buttonDiv")
+  //Append the button div 
+  $(".time-block").append(buttonDiv);
 
+  //This is the save button
+  var saveBtn = $("<button>")
+  saveBtn.attr("class","saveBtn")
+  saveBtn.text("Save")
+  //Append the button to the button fiv 
+  buttonDiv.append(saveBtn)
+
+  //This is the div making the rows
+  var dayRow = $("<div>");
+  dayRow.attr("class", "row day");
+   //Append row to the time-block div existing in the container
+  $(".time-block").append(dayRow);
+
+  var timeRecording = $("<textarea>")
+  timeRecording.attr("class", "timestamp")
+    //Appends the textArea
+  dayRow.append(timeRecording)
+  
+    saveBtn.on("click", function() {
+    var event = timeRecording.val();
+    localStorage.setItem(day, event);
+  })
  
 });
+
+
+
